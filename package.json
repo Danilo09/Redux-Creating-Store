@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.1",
+    "immer": "^9.0.18",
+    "redux": "^4.2.0"
+  }
+}
