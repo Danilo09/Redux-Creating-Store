@@ -1,8 +1,13 @@
-import aluno from './aluno.js'
-import aulas from './aulas.js'
+const { createStore, combineReducers, compose, applyMiddleware } = Redux;
 
-const reducer = Redux.combineReducers({ aluno, aulas })
+import thunk from "./middleware/thunk.js";
+import localStorage from "./middleware/localStorage.js";
+import token from "./token.js";
+import user from "./user.js";
 
-const store = Redux.createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const enhancer = composeEnhancers(applyMiddleware(thunk, localStorage));
+const reducer = combineReducers({ token, user });
+const store = createStore(reducer, enhancer);
 
 export default store;

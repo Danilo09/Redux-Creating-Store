@@ -5,36 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Redux</title>
     <script src="./redux.js"></script>
     <script src="./immer.umd.production.min.js"></script>
 </head>
 
 <body>
-    <h1 id="aluno"></h1>
-    <h1 id="aulas"></h1>
 
-    <script type="module">
-        import store from './store/configureStore.js';
-        import { incrementarTempo, reduzirTempo, modificarEmail } from './store/aluno.js'
-        import { completarAula, completarCurso, resetarCurso } from './store/aulas.js'
-
-        function render() {
-            const { aluno, aulas } = store.getState();
-            const alunoEl = document.getElementById('aluno');
-            const aulasEl = document.getElementById('aulas');
-
-            alunoEl.innerText = `${aluno.nome} : ${aluno.email} : ${aluno.diasRestantes} `
-            aulasEl.innerText = aulas.filter((aula) => aula.completa === true).length
-        }
-        render();
-
-        store.subscribe(render);
-
-        store.dispatch(incrementarTempo());
-        store.dispatch(reduzirTempo());
-        store.dispatch(modificarEmail('danilo@origamid.com'));
-    </script>
+    <script src="./script.js" type="module"></script>
 </body>
 
 
